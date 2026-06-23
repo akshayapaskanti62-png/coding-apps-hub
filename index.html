@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Apps Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header -->
+<header>
+
+    <div class="logo">💻 Coding Apps Hub</div>
+    <button class="menu-btn" onclick="toggleMenu()">
+☰
+</button>
+
+<nav id="navbar">
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">Apps</a></li>
+        <li><a href="#">Categories</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+
+    <div class="header-right">
+
+        <button id="darkModeBtn">🌙</button>
+
+        <button class="notification">
+            🔔
+           <span class="badge" id="notificationCount">
+0
+</span>
+        </button>
+
+        <button id="loginBtn">Login</button>
+
+        <button id="registerBtn">Register</button>
+
+        <button onclick="adminLogin()">
+    Admin
+</button>
+
+<span id="userDisplay"></span>
+
+<button onclick="logoutUser()">
+    Logout
+</button>
+
+    </div>
+<div class="profile">
+
+    👤 Profile
+
+    <div class="dropdown">
+
+        <a href="saved-apps.html">My Apps</a>
+
+        <a href="profile.html">Profile</a>
+
+<a href="admin.html">
+Admin Dashboard
+</a>
+
+        <a href="#">Certificates</a>
+
+        <a href="#">Settings</a>
+
+        <a href="#">Logout</a>
+
+    </div>
+
+</div>
+</header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Discover the Best Coding Apps</h1>
+        <p>Find free, paid, certified and offline coding apps in one place.</p>
+
+        <div class="search-box">
+
+    <input
+        id="searchInput"
+        type="text"
+        placeholder="Search coding apps..."
+    >
+
+    <button onclick="searchApps()">
+        Search
+    </button>
+
+</div>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories">
+        <h2>Explore Categories</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>Free Apps</h3>
+                <p>Learn coding without spending money.</p>
+            </div>
+
+            <div class="card">
+                <h3>Paid Apps</h3>
+                <p>Premium courses and certifications.</p>
+            </div>
+
+            <div class="card">
+                <h3>Certified Apps</h3>
+                <p>Apps providing certificates after completion.</p>
+            </div>
+
+            <div class="card">
+                <h3>Offline Apps</h3>
+                <p>Learn coding without internet access.</p>
+            </div>
+
+        </div>
+    </section>
+<section class="filters">
+
+    <h2>Filter Apps</h2>
+
+    <button onclick="filterApps('all')">All</button>
+
+    <button onclick="filterApps('free')">Free</button>
+
+    <button onclick="filterApps('paid')">Paid</button>
+
+    <button onclick="filterApps('offline')">Offline</button>
+
+    <button onclick="filterApps('certified')">
+        Certified
+    </button>
+
+</section>
+    <!-- Featured Apps -->
+    <section class="featured">
+        
+    <h2>Featured Coding Apps</h2>
+
+    <div class="cards">
+
+<div class="card app-card free"
+     onclick="showApp(
+     'SoloLearn',
+     'Learn Python, Java, C++, HTML and more.'
+     )">
+    <h3>SoloLearn</h3>
+    <p>Learn coding for free.</p>
+
+    <div class="rating">⭐⭐⭐⭐⭐</div>
+
+    <button class="bookmark-btn"
+        onclick="event.stopPropagation(); saveApp('SoloLearn')">
+        ❤️ Save
+    </button>
+</div>
+<div class="card app-card paid"
+onclick="showApp(
+'Mimo',
+'Premium coding lessons and projects.'
+)">
+    <h3>Mimo</h3>
+    <p>Premium coding lessons.</p>
+
+    <div class="rating">⭐⭐⭐⭐☆</div>
+
+    <button class="bookmark-btn"
+            onclick="event.stopPropagation(); saveApp('Mimo')">
+        ❤️ Save
+    </button>
+</div>
+<div class="card app-card certified"
+     onclick="showApp(
+     'Programming Hub',
+     'Certificate-based coding courses.'
+     )">
+    <h3>Programming Hub</h3>
+    <p>Certificate courses available.</p>
+
+    <div class="rating">⭐⭐⭐⭐⭐</div>
+
+    <button class="bookmark-btn"
+            onclick="event.stopPropagation(); saveApp('Programming Hub')">
+        ❤️ Save
+    </button>
+</div>
+    </div>
+    </section>
+    <section class="dashboard">
+
+        <section class="custom-apps">
+
+            <section class="featured-admin">
+
+    <h2>⭐ Featured Apps</h2>
+
+    <div
+    id="featuredAppsContainer"
+    class="cards">
+
+    </div>
+
+</section>
+
+    <h2>Community Added Apps</h2>
+
+    <div id="customAppsContainer"
+         class="cards">
+    </div>
+
+</section>
+
+    <h2>User Dashboard</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Saved Apps</h3>
+           <p id="savedCount">0 Apps</p>
+        </div>
+
+        <div class="card">
+            <h3>Completed Courses</h3>
+            <p>5 Courses</p>
+        </div>
+
+        <div class="card">
+            <h3>Certificates</h3>
+            <p>3 Certificates</p>
+        </div>
+
+    </div>
+ </section>   
+<section class="trending">
+
+    <h2>🔥 Trending Apps</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            SoloLearn
+        </div>
+
+        <div class="card">
+            Mimo
+        </div>
+
+        <div class="card">
+            Programming Hub
+        </div>
+
+    </div>
+
+</section>
+
+<section class="comments">
+    <h2>User Feedback</h2>
+
+    <textarea id="commentInput"
+        placeholder="Write your feedback..."></textarea>
+
+    <button onclick="addComment()">Post Comment</button>
+
+    <div id="commentList"></div>
+</section>
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Coding Apps Hub. All Rights Reserved.</p>
+    </footer>
+
+<div id="loginModal" class="modal">
+
+    <div class="modal-content">
+
+        <span class="closeLogin">&times;</span>
+
+        <h2>Login</h2>
+
+        <input id="loginEmail"
+               type="email"
+               placeholder="Enter Email">
+
+        <input id="loginPassword"
+               type="password"
+               placeholder="Enter Password">
+
+        <button onclick="loginUser()">
+            Login
+        </button>
+
+    </div>
+
+</div>
+<div id="registerModal" class="modal">
+
+    <div class="modal-content">
+
+        <span class="closeRegister">&times;</span>
+
+        <h2>Create Account</h2>
+
+        <input id="regName"
+               type="text"
+               placeholder="Full Name">
+
+        <input id="regEmail"
+               type="email"
+               placeholder="Email">
+
+        <input id="regPassword"
+               type="password"
+               placeholder="Password">
+
+        <button onclick="registerUser()">
+            Register
+        </button>
+
+    </div>
+
+</div>
+
+
+<footer>
+    <p>© 2026 Coding Apps Hub. All Rights Reserved.</p>
+</footer>
+
+<!-- Login Modal -->
+<div id="loginModal" class="modal">
+
+</div>
+
+<!-- Register Modal -->
+<div id="registerModal" class="modal">
+
+</div>
+
+<!-- App Modal -->
+<div id="appModal" class="modal">
+
+    <div class="modal-content">
+
+        <span id="closeAppModal">&times;</span>
+
+        <h2 id="appTitle"></h2>
+
+        <img id="appImageModal"
+     src=""
+     alt="App Logo"
+     width="100">
+
+<p id="appCategory"></p>
+
+<p id="appRating">⭐⭐⭐⭐⭐</p>
+
+        <p id="appDescription"></p>
+
+<h3>Reviews</h3>
+
+<button onclick="toggleReviews()">
+    Show / Hide Reviews
+</button>
+
+<div id="reviewsList"></div>
+
+<textarea
+id="reviewInput"
+placeholder="Write a review...">
+</textarea>
+
+<button
+id="reviewBtn"
+onclick="addReview()">
+    Post Review
+</button>
+
+</div>
+<script src="script.js"></script>
+</body>
+</html>

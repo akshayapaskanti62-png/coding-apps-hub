@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Profile</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>User Profile</h1>
+
+<div class="card">
+
+    <h2 id="profileName">
+        Loading...
+    </h2>
+
+    <p id="profileEmail">
+        Loading...
+    </p>
+
+</div>
+
+<script>
+
+const user =
+JSON.parse(localStorage.getItem("user"));
+
+if(user){
+
+    document.getElementById(
+        "profileName"
+    ).innerText = user.name;
+
+    document.getElementById(
+        "profileEmail"
+    ).innerText = user.email;
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Saved Apps</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>My Saved Apps</h1>
+
+<div id="savedAppsList"></div>
+
+<script>
+
+const apps =
+JSON.parse(
+localStorage.getItem("savedApps")
+) || [];
+
+const container =
+document.getElementById(
+"savedAppsList"
+);
+
+apps.forEach(app=>{
+
+    const div =
+    document.createElement("div");
+
+    div.className = "card";
+
+    div.innerText = app;
+
+    container.appendChild(div);
+
+});
+
+</script>
+
+</body>
+</html>
