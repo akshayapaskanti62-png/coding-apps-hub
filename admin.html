@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    
+<h1>Admin Dashboard</h1>
+
+<button onclick="adminLogout()">
+    Admin Logout
+</button>
+
+<!-- Statistics -->
+<div class="cards">
+
+    <div class="card">
+        <h3>Total Apps</h3>
+        <p id="totalApps">0</p>
+    </div>
+
+    <div class="card">
+        <h3>Total Users</h3>
+        <p id="totalUsers">0</p>
+    </div>
+
+</div>
+
+<!-- Add App Form -->
+<div class="card">
+
+    <h2>Add New App</h2>
+
+    <input
+    type="text"
+    id="appName"
+    placeholder="App Name">
+
+    <textarea
+    id="appDescription"
+    placeholder="App Description">
+    </textarea>
+
+    <input
+    type="text"
+    id="appImage"
+    placeholder="App Logo URL">
+
+    <input
+type="number"
+id="appRating"
+placeholder="Rating (1-5)"
+min="1"
+max="5">
+
+    <select id="appCategory">
+
+        <option value="free">Free</option>
+
+        <option value="paid">Paid</option>
+
+        <option value="certified">
+            Certified
+        </option>
+
+    </select>
+
+    <label>
+
+        <input
+        type="checkbox"
+        id="appFeatured">
+
+        Featured App
+
+    </label>
+
+    <button onclick="addApp()">
+        Add App
+    </button>
+
+</div>
+
+<h2>Added Apps</h2>
+
+<div id="appsList"></div>
+
+<script src="admin.js"></script>
+
+</body>
+</html>
